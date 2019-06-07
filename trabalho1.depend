@@ -1,0 +1,138 @@
+# depslib dependency file v1.0
+1556381230 source:c:\unb\201901\tp1\dominios.cpp
+	"dominios.h"
+	<string.h>
+	<exception>
+	<stdexcept>
+	<iostream>
+	<array>
+
+1556307606 c:\unb\201901\tp1\dominios.h
+	<iostream>
+	<exception>
+	<stdexcept>
+	<string.h>
+
+1556381294 source:c:\unb\201901\tp1\main.cpp
+	<iostream>
+	<string.h>
+	"dominios.h"
+	"entidades.h"
+	"testes-dominios.h"
+	"testes-entidades.h"
+	"testes.h"
+
+1556381394 source:c:\unb\201901\tp1\testes-dominios.cpp
+	"testes-dominios.h"
+	"dominios.h"
+	<iostream>
+	<stdbool.h>
+	<exception>
+	<stdexcept>
+
+1556313439 c:\unb\201901\tp1\testes-dominios.h
+	<iostream>
+	<stdbool.h>
+	<string.h>
+	"dominios.h"
+
+1556382208 source:c:\unb\201901\tp1\testes-entidades.cpp
+	"testes-entidades.h"
+	"dominios.h"
+	"entidades.h"
+
+1556382472 c:\unb\201901\tp1\testes-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1556375376 c:\unb\201901\tp1\entidades.h
+	"dominios.h"
+
+1556377758 c:\unb\201901\tp1\testes.h
+	"dominios.h"
+	"entidades.h"
+	"testes-dominios.h"
+	"testes-entidades.h"
+
+1559857125 source:c:\users\matheus\downloads\tp1-master\tp1-master\dominios.cpp
+	"dominios.h"
+	<string.h>
+	<exception>
+	<stdexcept>
+	<iostream>
+	<array>
+
+1559857125 c:\users\matheus\downloads\tp1-master\tp1-master\dominios.h
+	<iostream>
+	<exception>
+	<stdexcept>
+	<string.h>
+
+1559857125 source:c:\users\matheus\downloads\tp1-master\tp1-master\testes-dominios.cpp
+	"testes-dominios.h"
+	"dominios.h"
+	<iostream>
+	<stdbool.h>
+	<exception>
+	<stdexcept>
+
+1559857125 c:\users\matheus\downloads\tp1-master\tp1-master\testes-dominios.h
+	<iostream>
+	<stdbool.h>
+	<string.h>
+	"dominios.h"
+
+1559857125 source:c:\users\matheus\downloads\tp1-master\tp1-master\testes-entidades.cpp
+	"testes-entidades.h"
+	"dominios.h"
+	"entidades.h"
+
+1559857125 c:\users\matheus\downloads\tp1-master\tp1-master\testes-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1559857125 c:\users\matheus\downloads\tp1-master\tp1-master\entidades.h
+	"dominios.h"
+
+1559928465 source:c:\users\matheus\downloads\tp1-master\tp1-master\main.cpp
+	<iostream>
+	<string.h>
+	"dominios.h"
+	"entidades.h"
+	"testes-dominios.h"
+	"testes-entidades.h"
+	"testes.h"
+	"interfaces.h"
+	"controladores.h"
+
+1559857125 c:\users\matheus\downloads\tp1-master\tp1-master\testes.h
+	"dominios.h"
+	"entidades.h"
+	"testes-dominios.h"
+	"testes-entidades.h"
+
+1559928667 c:\users\matheus\downloads\tp1-master\tp1-master\interfaces.h
+	"dominios.h"
+	"entidades.h"
+	<stdbool.h>
+
+1559929306 c:\users\matheus\downloads\tp1-master\tp1-master\controladores.h
+	"interfaces.h"
+	"dominios.h"
+	"entidades.h"
+	"servicos.h"
+
+1559929275 source:c:\users\matheus\downloads\tp1-master\tp1-master\controladores.cpp
+	"controladores.h"
+	"dominios.h"
+	"entidades.h"
+	"interfaces.h"
+	"servicos.h"
+	<iostream>
+
+1559927889 c:\users\matheus\downloads\tp1-master\tp1-master\servicos.h
+	"interfaces.h"
+	"dominios.h"
+	"entidades.h"
+	"controladores.h"
+
