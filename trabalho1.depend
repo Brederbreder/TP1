@@ -7,6 +7,8 @@
 	<iostream>
 	<array>
 
+1559929275 
+
 1556307606 c:\unb\201901\tp1\dominios.h
 	<iostream>
 	<exception>
@@ -30,16 +32,22 @@
 	<exception>
 	<stdexcept>
 
+1559928667 >
+
 1556313439 c:\unb\201901\tp1\testes-dominios.h
 	<iostream>
 	<stdbool.h>
 	<string.h>
 	"dominios.h"
 
+1559929306 h"
+
 1556382208 source:c:\unb\201901\tp1\testes-entidades.cpp
 	"testes-entidades.h"
 	"dominios.h"
 	"entidades.h"
+
+1559857125 .h"
 
 1556382472 c:\unb\201901\tp1\testes-entidades.h
 	"entidades.h"
@@ -53,6 +61,8 @@
 	"entidades.h"
 	"testes-dominios.h"
 	"testes-entidades.h"
+
+1559857125 tidades.h"
 
 1559857125 source:c:\users\matheus\downloads\tp1-master\tp1-master\dominios.cpp
 	"dominios.h"
@@ -105,6 +115,8 @@
 	"interfaces.h"
 	"controladores.h"
 
+1559927889 ores.h"
+
 1559857125 c:\users\matheus\downloads\tp1-master\tp1-master\testes.h
 	"dominios.h"
 	"entidades.h"
@@ -135,4 +147,93 @@
 	"dominios.h"
 	"entidades.h"
 	"controladores.h"
+
+1560177832 source:/home/matheus/Documentos/UnB/201901/TP1/controladores.cpp
+	"controladores.h"
+	"dominios.h"
+	"entidades.h"
+	"interfaces.h"
+	"servicos.h"
+	<iostream>
+
+1560180578 /home/matheus/Documentos/UnB/201901/TP1/controladores.h
+	"interfaces.h"
+	"dominios.h"
+	"entidades.h"
+	"servicos.h"
+
+1560180355 /home/matheus/Documentos/UnB/201901/TP1/interfaces.h
+	"dominios.h"
+	"entidades.h"
+	<stdbool.h>
+
+1560177470 /home/matheus/Documentos/UnB/201901/TP1/dominios.h
+	<iostream>
+	<exception>
+	<stdexcept>
+	<string.h>
+
+1560177470 /home/matheus/Documentos/UnB/201901/TP1/entidades.h
+	"dominios.h"
+
+1560177855 /home/matheus/Documentos/UnB/201901/TP1/servicos.h
+	"interfaces.h"
+	"dominios.h"
+	"entidades.h"
+	"controladores.h"
+
+1560177470 source:/home/matheus/Documentos/UnB/201901/TP1/dominios.cpp
+	"dominios.h"
+	<string.h>
+	<exception>
+	<stdexcept>
+	<iostream>
+	<array>
+
+1560177877 source:/home/matheus/Documentos/UnB/201901/TP1/main.cpp
+	<iostream>
+	<string.h>
+	"dominios.h"
+	"entidades.h"
+	"testes-dominios.h"
+	"testes-entidades.h"
+	"testes.h"
+	"interfaces.h"
+	"controladores.h"
+
+1560177470 /home/matheus/Documentos/UnB/201901/TP1/testes-dominios.h
+	<iostream>
+	<stdbool.h>
+	<string.h>
+	"dominios.h"
+
+1560177470 /home/matheus/Documentos/UnB/201901/TP1/testes-entidades.h
+	"entidades.h"
+	"dominios.h"
+
+1560177470 /home/matheus/Documentos/UnB/201901/TP1/testes.h
+	"dominios.h"
+	"entidades.h"
+	"testes-dominios.h"
+	"testes-entidades.h"
+
+1560180901 source:/home/matheus/Documentos/UnB/201901/TP1/servicos.cpp
+	"interfaces.h"
+	"dominios.h"
+	"entidades.h"
+	"controladores.h"
+	"servicos.h"
+
+1560177470 source:/home/matheus/Documentos/UnB/201901/TP1/testes-dominios.cpp
+	"testes-dominios.h"
+	"dominios.h"
+	<iostream>
+	<stdbool.h>
+	<exception>
+	<stdexcept>
+
+1560177470 source:/home/matheus/Documentos/UnB/201901/TP1/testes-entidades.cpp
+	"testes-entidades.h"
+	"dominios.h"
+	"entidades.h"
 

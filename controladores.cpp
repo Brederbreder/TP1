@@ -5,7 +5,7 @@
 #include "servicos.h"
 #include <iostream>
 
-void CtrlApresentacaoControle::Inicilizar(){
+void CtrlApresentacaoControle::Inicializar(){
 
     int opt;
 
@@ -20,18 +20,5 @@ void CtrlApresentacaoControle::Inicilizar(){
     }while(opt != sairc);
 }
 
-void CtrlApresentacaoControle::ControleLogado(const Cpf &){
-  int opt;
 
-  do{
-    cout << "\tBem-vindo!\n\n";
-    cout << "Escolha uma das opcoes abaixo.\n\n";
-    cout << comprar << ". Comprar ingresso\n";
-    cout << cadastrarEvento << ". Cadastrar evento\n";
-    cout << descadastrarEvento << ". Descadastrar evento\n";
-    cout << descadastrarUsuario << ". Cadastrar usuario\n";
-    cout << saircl << ". Sair\n\topcao: ";
-    cin >> opt;
-  }while(opt != saircl);
-}
 

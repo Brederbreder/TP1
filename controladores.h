@@ -21,28 +21,18 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle{
             sairc
         };
 
-        enum ControleLogado{
-            nullcl,
-            comprar,
-            cadastrarEvento,
-            descadastrarEvento,
-            descadastrarUsuario,
-            saircl
-        };
-
     public:
-        void Inicilizar();
-        void ControleLogado(const Cpf &) override;
-        inline void SetCtrlApresentacaoUsuario(InterfaceApresentacaoUsuario *iau) override{
-            this->ctrlAU = iau;
+        void Inicializar();
+        inline void SetCtrlApresentacaoUsuario(InterfaceApresentacaoUsuario *iau) override {
+            this->ctrlAU =iau;
         }
-        inline void SetCtrlApresentacaoAutenticacao(InterfaceApresentacaoAutenticacao *iaa) override{
+        inline void SetCtrlApresentacaoAutenticacao(InterfaceApresentacaoAutenticacao *iaa) override {
             this->ctrlAA = iaa;
         }
-        inline void SetCtrlApresentacaoEvento(InterfaceApresentacaoEvento *iae) override{
+        inline void SetCtrlApresentacaoEvento(InterfaceApresentacaoEvento *iae) override {
             this->ctrlAE = iae;
         }
-        inline void SetCtrlApresentacaoVenda(InterfaceApresentacaoVenda *iav) override{
+        inline void SetCtrlApresentacaoVenda(InterfaceApresentacaoVenda *iav) override {
             this->ctrlAV = iav;
         }
 };
@@ -52,8 +42,7 @@ class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao{
         InterfaceServicoAutenticacao *ctrlServicoAutenticacao;
 
     public:
-        bool Autenticar() override;
-        inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override{
+        inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override {
             this->ctrlServicoAutenticacao = isa;
         }
 };
@@ -70,10 +59,7 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario{
         };
 
     public:
-        bool Cadastrar(const string cpf, const string senha, const string numeroCartaoDeCredito,
-                       const string codigoDeSeguranca, const string dataDeValidade);
-        bool Descadastrar(const string cpf, const string senha );
-        inline void SetCtrlServicoUsuario(InterfaceServicoUsuario *isu){
+        inline void SetCtrlServicoUsuario(InterfaceServicoUsuario *isu) override {
             this->ctrlServicoUsuario = isu;
         }
 };
@@ -90,14 +76,7 @@ class CtrlApresentacaoEvento : public InterfaceApresentacaoEvento{
         };
 
     public:
-        bool ProcurarEvento(const string horarioInicio, const string horarioTermino, const string cidade,
-                            const string estado);
-        bool CadastrarEvento(const CodigoDeEvento &, const NomeDeEvento &, const CodigoDeApresentacao &,
-                             const Data &, const Horario &, const Preco &, const NumeroDeSala &,
-                             const Cidade &, const Estado &, const ClasseDeEvento &, const FaixaEtaria &);
-        bool DescadastrarEvento(const CodigoDeEvento &);
-        void Executar(const Cpf &);
-        inline void SetCtrlServicoEvento(InterfaceServicoEvento *ise) override{
+        inline void SetCtrlServicoEvento(InterfaceServicoEvento *ise) override {
             this->ctrlServicoEvento = ise;
         }
 };
@@ -113,8 +92,7 @@ class CtrlApresentacaoVenda : public InterfaceApresentacaoVenda{
         };
 
     public:
-        void Executar(const Cpf &);
-        inline void SetCtrlServicoVenda(InterfaceServicoVenda *isv){
+        inline void SetCtrlServicoVenda(InterfaceServicoVenda *isv) override {
             this->ctrlServicoVenda = isv;
         }
 };
