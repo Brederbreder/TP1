@@ -52,3 +52,7 @@ void CtrlServicoControle::Construir(){
     delete ctrl_sv;
     delete ctrl_ac;
 }
+
+Resultado CtrlServicoAutenticacao::Autenticar(const Cpf &cpf, const Senha &senha){
+    cout << "\nTESTE\n";
+}

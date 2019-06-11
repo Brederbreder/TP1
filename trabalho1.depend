@@ -148,24 +148,20 @@
 	"entidades.h"
 	"controladores.h"
 
-1560177832 source:/home/matheus/Documentos/UnB/201901/TP1/controladores.cpp
+1560254181 source:/home/matheus/Documentos/UnB/201901/TP1/controladores.cpp
 	"controladores.h"
 	"dominios.h"
 	"entidades.h"
 	"interfaces.h"
 	"servicos.h"
+	"auxiliar.h"
 	<iostream>
 
-1560180578 /home/matheus/Documentos/UnB/201901/TP1/controladores.h
+1560251217 /home/matheus/Documentos/UnB/201901/TP1/controladores.h
 	"interfaces.h"
-	"dominios.h"
-	"entidades.h"
-	"servicos.h"
 
-1560180355 /home/matheus/Documentos/UnB/201901/TP1/interfaces.h
-	"dominios.h"
-	"entidades.h"
-	<stdbool.h>
+1560250941 /home/matheus/Documentos/UnB/201901/TP1/interfaces.h
+	"auxiliar.h"
 
 1560177470 /home/matheus/Documentos/UnB/201901/TP1/dominios.h
 	<iostream>
@@ -176,11 +172,8 @@
 1560177470 /home/matheus/Documentos/UnB/201901/TP1/entidades.h
 	"dominios.h"
 
-1560177855 /home/matheus/Documentos/UnB/201901/TP1/servicos.h
+1560251276 /home/matheus/Documentos/UnB/201901/TP1/servicos.h
 	"interfaces.h"
-	"dominios.h"
-	"entidades.h"
-	"controladores.h"
 
 1560177470 source:/home/matheus/Documentos/UnB/201901/TP1/dominios.cpp
 	"dominios.h"
@@ -190,7 +183,7 @@
 	<iostream>
 	<array>
 
-1560177877 source:/home/matheus/Documentos/UnB/201901/TP1/main.cpp
+1560247395 source:/home/matheus/Documentos/UnB/201901/TP1/main.cpp
 	<iostream>
 	<string.h>
 	"dominios.h"
@@ -200,6 +193,7 @@
 	"testes.h"
 	"interfaces.h"
 	"controladores.h"
+	"stubs.h"
 
 1560177470 /home/matheus/Documentos/UnB/201901/TP1/testes-dominios.h
 	<iostream>
@@ -217,7 +211,7 @@
 	"testes-dominios.h"
 	"testes-entidades.h"
 
-1560180901 source:/home/matheus/Documentos/UnB/201901/TP1/servicos.cpp
+1560251571 source:/home/matheus/Documentos/UnB/201901/TP1/servicos.cpp
 	"interfaces.h"
 	"dominios.h"
 	"entidades.h"
@@ -236,4 +230,22 @@
 	"testes-entidades.h"
 	"dominios.h"
 	"entidades.h"
+
+1560250352 /home/matheus/Documentos/UnB/201901/TP1/auxiliar.h
+	"dominios.h"
+	"entidades.h"
+
+1560252850 /home/matheus/Documentos/UnB/201901/TP1/stubs.h
+	"interfaces.h"
+	"dominios.h"
+	"entidades.h"
+	"auxiliar.h"
+
+1560254086 source:/home/matheus/Documentos/UnB/201901/TP1/stubs.cpp
+	"stubs.h"
+	"auxiliar.h"
+	"dominios.h"
+	"entidades.h"
+	"controladores.h"
+	"servicos.h"
 

@@ -2,16 +2,13 @@
 #define __CONTROLADORES_H__
 
 #include "interfaces.h"
-#include "dominios.h"
-#include "entidades.h"
-#include "servicos.h"
 
 class CtrlApresentacaoControle : public InterfaceApresentacaoControle{
     private:
-        InterfaceApresentacaoUsuario *ctrlAU;
-        InterfaceApresentacaoAutenticacao *ctrlAA;
-        InterfaceApresentacaoEvento *ctrlAE;
-        InterfaceApresentacaoVenda *ctrlAV;
+        InterfaceApresentacaoUsuario *ctrl_au;
+        InterfaceApresentacaoAutenticacao *ctrl_aa;
+        InterfaceApresentacaoEvento *ctrl_ae;
+        InterfaceApresentacaoVenda *ctrl_av;
 
         enum Controle{
             nullc,
@@ -24,16 +21,16 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle{
     public:
         void Inicializar();
         inline void SetCtrlApresentacaoUsuario(InterfaceApresentacaoUsuario *iau) override {
-            this->ctrlAU =iau;
+            this->ctrl_au =iau;
         }
         inline void SetCtrlApresentacaoAutenticacao(InterfaceApresentacaoAutenticacao *iaa) override {
-            this->ctrlAA = iaa;
+            this->ctrl_aa = iaa;
         }
         inline void SetCtrlApresentacaoEvento(InterfaceApresentacaoEvento *iae) override {
-            this->ctrlAE = iae;
+            this->ctrl_ae = iae;
         }
         inline void SetCtrlApresentacaoVenda(InterfaceApresentacaoVenda *iav) override {
-            this->ctrlAV = iav;
+            this->ctrl_av = iav;
         }
 };
 
@@ -42,6 +39,7 @@ class CtrlApresentacaoAutenticacao : public InterfaceApresentacaoAutenticacao{
         InterfaceServicoAutenticacao *ctrlServicoAutenticacao;
 
     public:
+        ResultadoAutenticar Autenticar() override;
         inline void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *isa) override {
             this->ctrlServicoAutenticacao = isa;
         }

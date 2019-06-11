@@ -1,4 +1,15 @@
 #include "stubs.h"
+#include "auxiliar.h"
+#include "dominios.h"
+#include "entidades.h"
+#include "controladores.h"
+#include "servicos.h"
+
+const string StubAutenticacao::trigger_erro_sistema_    = "errodesistema";
+const string StubAutenticacao::trigger_cpf_invalido_    = "123.456.789-00";
+const string StubAutenticacao::trigger_senha_invalida_   = "112233";
+const string StubAutenticacao::trigger_cpf_valido_      = "040.906.801-23";
+const string StubAutenticacao::trigger_senha_valida_     = "1aA2bB";
 
 void StubControle::Construir(){
 
@@ -12,15 +23,15 @@ void StubControle::Construir(){
     ctrl_ae = new CtrlApresentacaoEvento();
     ctrl_av = new CtrlApresentacaoVenda();
 
-    InterfaceServicoUsuario *ctrl_su;
-    InterfaceServicoAutenticacao *ctrl_sa;
-    InterfaceServicoEvento *ctrl_se;
-    InterfaceServicoVenda *ctrl_sv;
+    InterfaceServicoUsuario *stub_u;
+    InterfaceServicoAutenticacao *stub_a;
+    InterfaceServicoEvento *stub_e;
+    InterfaceServicoVenda *stub_v;
 
-    ctrl_su = new StubUsuario();
-    ctrl_sa = new StubAutenticacao();
-    ctrl_se = new StubEvento();
-    ctrl_sv = new StubVenda();
+    stub_u = new StubUsuario();
+    stub_a = new StubAutenticacao();
+    stub_e = new StubEvento();
+    stub_v = new StubVenda();
 
     ctrl_au->SetCtrlServicoUsuario(stub_u);
     ctrl_aa->SetCtrlServicoAutenticacao(stub_a);
@@ -47,4 +58,19 @@ void StubControle::Construir(){
     delete stub_e;
     delete stub_v;
     delete ctrl_ac;
+}
+
+Resultado StubAutenticacao::Autenticar(const Cpf &cpf, const Senha &senha){
+    ResultadoAutenticar resultado;
+
+
+    if(cpf.GetCpf() == trigger_cpf_invalido_ || senha.GetSenha() == trigger_senha_invalida_){
+        resultado.SetResultado(ResultadoAutenticar::falha);
+    }else if(cpf.GetCpf() == trigger_erro_sistema_){
+        throw invalid_argument("Erro de Sistema!\n");
+    }else{
+        resultado.SetResultado(ResultadoAutenticar::sucesso);
+    }
+    cout << "TESTE\n\n";
+    return resultado;
 }

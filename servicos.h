@@ -2,9 +2,6 @@
 #define __SERVICOS_H__
 
 #include "interfaces.h"
-#include "dominios.h"
-#include "entidades.h"
-#include "controladores.h"
 
 class CtrlServicoControle : public InterfaceServicoControle{
     public:
@@ -13,6 +10,7 @@ class CtrlServicoControle : public InterfaceServicoControle{
 
 class CtrlServicoAutenticacao : public InterfaceServicoAutenticacao{
     public:
+        Resultado Autenticar(const Cpf &, const Senha &) override;
 };
 
 class CtrlServicoUsuario : public InterfaceServicoUsuario{

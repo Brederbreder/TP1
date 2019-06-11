@@ -1,9 +1,7 @@
 #ifndef __INTERFACES_H__
 #define __INTERFACES_H__
 
-#include "dominios.h"
-#include "entidades.h"
-#include <stdbool.h>
+#include "auxiliar.h"
 
 class InterfaceApresentacaoControle;
 class InterfaceApresentacaoUsuario;
@@ -34,11 +32,13 @@ class InterfaceApresentacaoControle{
 
 class InterfaceServicoAutenticacao{
     public:
+        virtual Resultado Autenticar(const Cpf &, const Senha &) = 0;
         virtual ~InterfaceServicoAutenticacao() = default;
 };
 
 class InterfaceApresentacaoAutenticacao{
     public:
+        virtual ResultadoAutenticar Autenticar() = 0;
         virtual void SetCtrlServicoAutenticacao(InterfaceServicoAutenticacao *) = 0;
         virtual ~InterfaceApresentacaoAutenticacao() = default;
 };

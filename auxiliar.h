@@ -1,45 +1,40 @@
 #ifndef __AUXILIAR_H__
 #define __AUXILIAR_H__
 
-#include "controladores.h"
 #include "dominios.h"
 #include "entidades.h"
-#include "interfaces.h"
-#include <iostream>
-#include <stdbool>
 
 class Resultado{
     private:
-        int valor;
+        int valor_;
     public:
         const static int sucesso = 1;
         const static int falha = 0;
         inline void SetResultado(int valor){
-            this->valor = valor;
+            this->valor_ = valor;
         }
-        inline int GetResultado() const{
-            return valor;
+        inline int GetResultado() const {
+            return valor_;
         }
 };
 
-class ResultadoAutenticar :: public Resultado{
+class ResultadoAutenticar : public Resultado{
     private:
-        Cpf cpf;
-        Senha senha;
-
-    public:
         inline void SetCpfResultado(const Cpf &cpf){
-            this->cpf = cpf;
+            this->cpf_ = cpf;
         }
         inline void SetSenhaResultado(const Senha &senha){
-            this->senha = senha;
+            this->senha_ = senha;
         }
-        Senha GetSenhaResultado(){
-            return senha;
+        Cpf GetCpfResultado() const {
+            return cpf_;
         }
-        Cpf GetCpfResultado(){
-            return cpf;
+        Senha GetSenhaResultado() const {
+            return senha_;
         }
-}
+    public:
+        Cpf cpf_;
+        Senha senha_;
+};
 
 #endif

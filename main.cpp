@@ -7,13 +7,14 @@
 #include "testes.h"
 #include "interfaces.h"
 #include "controladores.h"
+#include "stubs.h"
 
 using namespace std;
 
 int main()
 {
     InterfaceServicoControle *isc;
-    isc = new CtrlServicoControle();
+    isc = new StubControle();
     isc->Construir();
 
     delete isc;
