@@ -1,23 +1,31 @@
 #ifndef __STUBS_H__
 #define __STUBS_H__
 
-#include "controladores.h"
 #include "dominios.h"
 #include "entidades.h"
 #include "interfaces.h"
-#include <iostream>
-#include <string.h>
+#include "servicos.h"
+#include "controladores.h"
 
-class StubControle :: public InterfaceApresentacaoControle{
+class StubControle : public InterfaceServicoControle{
     public:
-        void Contruir() override;
+        void Construir() override;
 };
 
-class StubAutenticacao :: public InterfaceApresentacaoAutenticacao{
+class StubUsuario : public InterfaceServicoUsuario{
     public:
-        const static string triggerFalha;
-        const static string triggerSucesso;
-        const static string triggerErro;
-}
+};
+
+class StubAutenticacao : public InterfaceServicoAutenticacao{
+    public:
+};
+
+class StubEvento : public InterfaceServicoEvento{
+    public:
+};
+
+class StubVenda : public InterfaceServicoVenda{
+    public:
+};
 
 #endif

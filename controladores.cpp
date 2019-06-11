@@ -17,6 +17,7 @@ void CtrlApresentacaoControle::Inicializar(){
         cout << autenticar << ". Autenticar\n";
         cout << sairc << ". Sair\n\topcao: ";
         cin >> opt;
+        cout << "\n";
     }while(opt != sairc);
 }
 

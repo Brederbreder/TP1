@@ -42,6 +42,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="servicos.cpp" />
 		<Unit filename="servicos.h" />
+		<Unit filename="stubs.cpp" />
+		<Unit filename="stubs.h" />
 		<Unit filename="testes-dominios.cpp" />
 		<Unit filename="testes-dominios.h" />
 		<Unit filename="testes-entidades.cpp" />
