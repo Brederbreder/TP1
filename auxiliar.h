@@ -37,4 +37,23 @@ class ResultadoAutenticar : public Resultado{
         Senha senha_;
 };
 
+class ResultadoUsuario : public Resultado{
+    public:
+        inline void SetResultado(int valor){
+            this->valor_ = valor;
+        }
+        inline void SetUsuarioResultado(const Usuario &usuario){
+            this->usuario_ = usuario;
+        }
+        inline int GetResultado() const{
+            return valor_;
+        }
+        inline Usuario GetUsuario() const{
+            return usuario_;
+        }
+    private:
+        int valor_;
+        Usuario usuario_;
+};
+
 #endif

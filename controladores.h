@@ -57,6 +57,7 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario{
         };
 
     public:
+        void Cadastrar() override;
         inline void SetCtrlServicoUsuario(InterfaceServicoUsuario *isu) override {
             this->ctrlServicoUsuario = isu;
         }

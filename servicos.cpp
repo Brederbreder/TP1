@@ -1,3 +1,5 @@
+/*
+
 #include "interfaces.h"
 #include "dominios.h"
 #include "entidades.h"

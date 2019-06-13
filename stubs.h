@@ -13,6 +13,8 @@ class StubControle : public InterfaceServicoControle{
 
 class StubUsuario : public InterfaceServicoUsuario{
     public:
+        Resultado CadastrarUsuario(Usuario &, const Cpf &, const Senha &, const NumeroCartaoDeCredito &,
+                                          const CodigoDeSeguranca &, const DataDeValidade &);
 };
 
 class StubAutenticacao : public InterfaceServicoAutenticacao{

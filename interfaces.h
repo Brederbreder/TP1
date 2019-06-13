@@ -45,11 +45,14 @@ class InterfaceApresentacaoAutenticacao{
 
 class InterfaceServicoUsuario{
     public:
+        virtual Resultado CadastrarUsuario(Usuario usuario, const Cpf &, const Senha &, const NumeroCartaoDeCredito &,
+                                           const CodigoDeSeguranca &, const DataDeValidade &) = 0;
         virtual ~InterfaceServicoUsuario() = default;
 };
 
 class InterfaceApresentacaoUsuario{
     public:
+        virtual void Cadastrar() = 0;
         virtual void SetCtrlServicoUsuario(InterfaceServicoUsuario *) = 0;
         virtual ~InterfaceApresentacaoUsuario() = default;
 };

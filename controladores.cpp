@@ -15,7 +15,7 @@ void CtrlApresentacaoControle::Inicializar(){
         cout << "/\\/\\/\\/\\/\\ Sistema de Venda de Ingressos /\\/\\/\\/\\/\\ \n\n";
         cout << "Escolha uma das opcoes abaixo.\n\n";
         cout << pesquisarEvento << ". Pesquisar evento\n";
-        cout << cadastrar << ". Cadastrar\n";
+        cout << cadastrar << ". Cadastrar/Descadastrar\n";
         cout << autenticar << ". Autenticar\n";
         cout << sairc << ". Sair\n\topcao: ";
         cin >> opt;
@@ -56,7 +56,7 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar(){
     int opt;
 
     cout << "Deseja retornar?\n\n1-Sim\n2-Nao\n";
-    cout << "Opcao: \n";
+    cout << "Opcao: ";
     cin >> opt;
     cout << "\n";
 
@@ -97,6 +97,51 @@ ResultadoAutenticar CtrlApresentacaoAutenticacao::Autenticar(){
 
     return resultado;
 
+}
+
+void CtrlApresentacaoUsuario::Cadastrar(){
+    ResultadoUsuario resultado;
+    Resultado verificado;
+    Usuario usuario_;
+    Cpf cpf_;
+    Senha senha_;
+    NumeroCartaoDeCredito numero_;
+    CodigoDeSeguranca codigo_;
+    DataDeValidade data_;
+    string cpf, senha, numero, codigo, data;
+    int opt;
+
+    do{
+        cout << "\nDeseja retornar?\n\n1-Sim\n2-Nao\n";
+        cout << "Opcao: ";
+        cin >> opt;
+        cout << "\n";
+
+        cout << "\nDigite o cpf (trigger de sucesso = , trigger de falha) \n;";
+        cin >> cpf;
+        cpf_ = Cpf(cpf);
+
+        cout << "\nDigite a senha (trigger de sucesso = , trigger de falha) \n";
+        cin >> senha;
+        senha_ = Senha(senha);
+
+        cout << "\nDigite o numero do cartao de credito (trigger de sucesso = , trigger de falha = )";
+        cin >> numero;
+        numero_ = NumeroCartaoDeCredito(numero);
+
+        cout << "\nDigite o codigo de seguranca do cartao de credito (trigger de sucesso = , trigger de falha = )";
+        cin >> codigo;
+        codigo_ = CodigoDeSeguranca(codigo);
+
+        cout << "\nDigite a data de validade do cartao de credito (trigger de sucesso = , trigger de falha = )";
+        cin >> data;
+        data_ = DataDeValidade(data);
+
+        Resultado res = ctrlServicoUsuario->CadastrarUsuario(usuario_, cpf_, senha_, numero_, codigo_, data_);
+
+        cout << "\n\nIMPLEMENTAR O CADASTRO!!!\n\n";
+
+    }while(opt != voltar);
 }
 
 
