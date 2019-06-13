@@ -19,7 +19,7 @@ class Resultado{
 };
 
 class ResultadoAutenticar : public Resultado{
-    private:
+    public:
         inline void SetCpfResultado(const Cpf &cpf){
             this->cpf_ = cpf;
         }
@@ -32,7 +32,7 @@ class ResultadoAutenticar : public Resultado{
         Senha GetSenhaResultado() const {
             return senha_;
         }
-    public:
+    private:
         Cpf cpf_;
         Senha senha_;
 };
