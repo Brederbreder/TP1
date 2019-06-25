@@ -43,21 +43,41 @@ class StubAutenticacao : public InterfaceServicoAutenticacao{
 
 class StubEvento : public InterfaceServicoEvento{
     public:
-        const static string trigger_erro_sistema_data;
+        const static string trigger_erro_sistema_codigo_;
+        const static string trigger_erro_sistema_data_;
         const static string trigger_data_invalida_;
         const static string trigger_horario_invalido_;
         const static string trigger_cidade_invalida_;
         const static string trigger_estado_invalido_;
+        const static string trigger_codigo_evento_invalido_;
+        const static string trigger_nome_invalido_;
+        const static string trigger_codigo_apresentacao_invalido_;
+        const static int trigger_preco_invalido_;
+        const static int trigger_numero_invalido_;
+        const static int trigger_classe_invalida_;
+        const static string trigger_faixa_invalida_;
         const static string trigger_data_valida_;
         const static string trigger_horario_valido_;
         const static string trigger_cidade_valida_;
         const static string trigger_estado_valido_;
+        const static string trigger_codigo_evento_valido_;
+        const static string trigger_nome_valido_;
+        const static string trigger_codigo_apresentacao_valido_;
+        const static int trigger_preco_valido_;
+        const static int trigger_numero_valido_;
+        const static int trigger_classe_valida_;
+        const static string trigger_faixa_valida_;
         Resultado ProcurarEvento(const Data &data, const Horario &horario, const Cidade &cidade, const Estado &estado);
+        Resultado CadastrarEvento(const CodigoDeEvento &codigoDeEvento, const NomeDeEvento &nome,
+                                  const CodigoDeApresentacao &codigoDeApresentacao, const Data &data,
+                                  const Horario &horario, const Preco &preco, const NumeroDeSala &numero,
+                                  const Cidade &cidade, const Estado &estado, const ClasseDeEvento &classe,
+                                  const FaixaEtaria &faixa);
 };
 
 class StubVenda : public InterfaceServicoVenda{
     public:
-        const static string trigger_erro_sistema_venda;
+        const static string trigger_erro_sistema_venda_;
         const static string trigger_codigo_invalido_;
         const static int trigger_quantidade_invalida_;
         const static string trigger_codigo_valido_;

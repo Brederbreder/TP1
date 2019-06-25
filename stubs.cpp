@@ -23,21 +23,36 @@ const string StubUsuario::trigger_numero_valido_    = "5555666677778884";
 const string StubUsuario::trigger_codigo_valido_    = "123";
 const string StubUsuario::trigger_data_valida_      = "09/22";
 
-const string StubVenda::trigger_erro_sistema_venda  = "0000";
+const string StubVenda::trigger_erro_sistema_venda_  = "0000";
 const string StubVenda::trigger_codigo_invalido_    = "4321";
 const int StubVenda::trigger_quantidade_invalida_   = 20;
 const string StubVenda::trigger_codigo_valido_      = "1234";
 const int StubVenda::trigger_quantidade_valida_     = 10;
 
-const string StubEvento::trigger_erro_sistema_data   = "19/08/20";
-const string StubEvento::trigger_data_invalida_      = "22/09/20";
-const string StubEvento::trigger_horario_invalido_   = "10:00";
-const string StubEvento::trigger_cidade_invalida_    = "jacarepagua";
-const string StubEvento::trigger_estado_invalido_    = "MG";
-const string StubEvento::trigger_data_valida_        = "10/10/20";
-const string StubEvento::trigger_horario_valido_     = "18:00";
-const string StubEvento::trigger_cidade_valida_      = "brazlandia";
-const string StubEvento::trigger_estado_valido_      = "DF";
+const string StubEvento::trigger_erro_sistema_codigo_           = "000";
+const string StubEvento::trigger_erro_sistema_data_             = "19/08/20";
+const string StubEvento::trigger_data_invalida_                 = "22/09/20";
+const string StubEvento::trigger_horario_invalido_              = "10:00";
+const string StubEvento::trigger_cidade_invalida_               = "jacarepagua";
+const string StubEvento::trigger_estado_invalido_               = "MG";
+const string StubEvento::trigger_data_valida_                   = "10/10/20";
+const string StubEvento::trigger_horario_valido_                = "18:00";
+const string StubEvento::trigger_cidade_valida_                 = "brazlandia";
+const string StubEvento::trigger_estado_valido_                 = "DF";
+const string StubEvento::trigger_codigo_evento_invalido_        = "321";
+const string StubEvento::trigger_nome_invalido_                 = "show";
+const string StubEvento::trigger_codigo_apresentacao_invalido_  = "4321";
+const int StubEvento::trigger_preco_invalido_                   = 100;
+const int StubEvento::trigger_numero_invalido_                  = 1;
+const int StubEvento::trigger_classe_invalida_                  = 1;
+const string StubEvento::trigger_faixa_invalida_                = "12";
+const string StubEvento::trigger_codigo_evento_valido_          = "123";
+const string StubEvento::trigger_nome_valido_                   = "festa";
+const string StubEvento::trigger_codigo_apresentacao_valido_    = "1234";
+const int StubEvento::trigger_preco_valido_                     = 200;
+const int StubEvento::trigger_numero_valido_                    = 2;
+const int StubEvento::trigger_classe_valida_                    = 2;
+const string StubEvento::trigger_faixa_valida_                  = "16";
 
 void StubControle::Construir(){
 
@@ -153,7 +168,7 @@ Resultado StubVenda::Comprar(const CodigoDeApresentacao &codigo, const int quant
 
     if(codigo.GetCodigoDeApresentacao() == trigger_codigo_invalido_ || quantidade == trigger_quantidade_invalida_){
         resultado.SetResultado(ResultadoVenda::falha);
-    }else if(codigo.GetCodigoDeApresentacao() == trigger_erro_sistema_venda){
+    }else if(codigo.GetCodigoDeApresentacao() == trigger_erro_sistema_venda_){
         resultado.SetResultado(ResultadoVenda::falha);
         throw invalid_argument("Erro de Sistema!\n");
     }else{
@@ -172,11 +187,47 @@ Resultado StubEvento::ProcurarEvento(const Data &data, const Horario &horario, c
     if(data.GetData() == trigger_data_invalida_ || horario.GetHorario() == trigger_horario_invalido_ ||
        cidade.GetCidade() == trigger_cidade_invalida_ || estado.GetEstado() == trigger_estado_invalido_){
         resultado.SetResultado(ResultadoEvento::falha);
-    }else if(data.GetData() == trigger_erro_sistema_data){
+    }else if(data.GetData() == trigger_erro_sistema_data_){
         resultado.SetResultado(ResultadoEvento::falha);
         throw invalid_argument("Erro de Sistema!\n");
     }else{
         resultado.SetResultado(ResultadoEvento::sucesso);
     }
     return resultado;
+}
+
+Resultado StubEvento::CadastrarEvento(const CodigoDeEvento &codigoDeEvento, const NomeDeEvento &nome,
+                                      const CodigoDeApresentacao &codigoDeApresentacao, const Data &data,
+                                      const Horario &horario, const Preco &preco, const NumeroDeSala &numero,
+                                      const Cidade &cidade, const Estado &estado, const ClasseDeEvento &classe,
+                                      const FaixaEtaria &faixa){
+    Resultado resultado;
+
+    cout << "\nCODIGO DE EVENTO RECEBIDO NA STUB = " << codigoDeEvento.GetCodigoDeEvento() << "\n";
+    cout << "\nNOME RECEBIDO NA STUB = " << nome.GetNomeDeEvento() << "\n";
+    cout << "\nCODIGO DE APRESENTACAO RECEBIDO NA STUB = " << codigoDeApresentacao.GetCodigoDeApresentacao() << "\n";
+    cout << "\nDATA RECEBIDA NA STUB = " << data.GetData() << "\n";
+    cout << "\nHORARIO RECEBIDO NA STUB = " << horario.GetHorario() << "\n";
+    cout << "\nPRECO RECEBIDO NA STUB = " << preco.GetPreco() << "\n";
+    cout << "\nNUMERO DE SALA RECEBIDO NA STUB = " << numero.GetNumeroDeSala() << "\n";
+    cout << "\nCIDADE RECEBIDA NA STUB = " << cidade.GetCidade() << "\n";
+    cout << "\nESTADO RECEBIDO NA STUB = " << estado.GetEstado() << "\n";
+    cout << "\nCLASSE DE EVENTO RECEBIDA NA STUB = " << classe.GetClasseDeEvento() << "\n";
+    cout << "\nFAIXA ETARIA RECEBIDA NA STUB = " << faixa.GetFaixaEtaria() << "\n";
+
+    if(codigoDeEvento.GetCodigoDeEvento() == trigger_codigo_evento_invalido_ ||
+       nome.GetNomeDeEvento() == trigger_nome_invalido_ ||
+       codigoDeApresentacao.GetCodigoDeApresentacao() == trigger_codigo_apresentacao_invalido_ ||
+       data.GetData() == trigger_data_invalida_ || horario.GetHorario() == trigger_horario_invalido_ ||
+       preco.GetPreco() == trigger_preco_invalido_ || numero.GetNumeroDeSala() == trigger_numero_invalido_ ||
+       cidade.GetCidade() == trigger_cidade_invalida_ || estado.GetEstado() == trigger_estado_invalido_ ||
+       classe.GetClasseDeEvento() == trigger_classe_invalida_ || faixa.GetFaixaEtaria() == trigger_faixa_invalida_){
+            resultado.SetResultado(ResultadoEvento::falha);
+       }else if(codigoDeEvento.GetCodigoDeEvento() == trigger_erro_sistema_codigo_){
+            resultado.SetResultado(ResultadoEvento::falha);
+            throw invalid_argument("Erro de Sistema!\n");
+       }else{
+            resultado.SetResultado(ResultadoEvento::sucesso);
+       }
+       return resultado;
 }

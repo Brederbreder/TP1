@@ -61,12 +61,18 @@ class InterfaceApresentacaoUsuario{
 
 class InterfaceServicoEvento{
     public:
+        virtual Resultado CadastrarEvento(const CodigoDeEvento &codigoDeEvento, const NomeDeEvento &nome,
+                                          const CodigoDeApresentacao &codigoDeApresentacao, const Data &data,
+                                          const Horario &horario, const Preco &preco, const NumeroDeSala &numero,
+                                          const Cidade &cidade, const Estado &estado, const ClasseDeEvento &classe,
+                                          const FaixaEtaria &faixa) = 0;
         virtual Resultado ProcurarEvento(const Data &data, const Horario &horario, const Cidade &cidade, const Estado &estado) = 0;
         virtual ~InterfaceServicoEvento() = default;
 };
 
 class InterfaceApresentacaoEvento{
     public:
+        virtual ResultadoEvento Cadastrar() = 0;
         virtual ResultadoEvento Procurar() = 0;
         virtual void SetCtrlServicoEvento(InterfaceServicoEvento *) = 0;
         virtual ~InterfaceApresentacaoEvento() = default;

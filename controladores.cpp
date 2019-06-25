@@ -13,6 +13,7 @@ void CtrlApresentacaoControle::Inicializar(){
     ResultadoUsuario resultado_d;
     ResultadoVenda resultado_ci;
     ResultadoEvento resultado_pe;
+    ResultadoEvento resultado_ce;
     int opt;
 
     do{
@@ -83,6 +84,18 @@ void CtrlApresentacaoControle::Inicializar(){
                     resultado_pe = ctrl_ae->Procurar();
                     if(resultado_pe.GetResultado() == ResultadoUsuario::sucesso){
                         cout << "\nSucesso na pesquisa!\n\n";
+                    }
+                }catch(exception &e){
+                    cout << "\n\t" << e.what() << "\n";
+                    opt = sairc;
+                }
+                break;
+
+            case Controle::cadastrarEvento:
+                try{
+                    resultado_ce = ctrl_ae->Cadastrar();
+                    if(resultado_ce.GetResultado() == ResultadoUsuario::sucesso){
+                        cout << "\nSucesso no cadastramento de evento!\n\n";
                     }
                 }catch(exception &e){
                     cout << "\n\t" << e.what() << "\n";
@@ -352,6 +365,99 @@ ResultadoEvento CtrlApresentacaoEvento::Procurar(){
 
             if(verificado.GetResultado() == ResultadoEvento::falha){
                 cout << "\nFalha de procura!\n\n";
+            }
+
+            resultado.SetResultado(verificado.GetResultado());
+            return resultado;
+        }
+}
+
+ResultadoEvento CtrlApresentacaoEvento::Cadastrar(){
+    ResultadoEvento resultado;
+    Resultado verificado;
+    int preco, numero, classe;
+    string codigoDeEvento, nome, codigoDeApresentacao, data, horario, cidade, estado, faixa;
+    CodigoDeEvento codigoDeEvento_;
+    NomeDeEvento nome_;
+    CodigoDeApresentacao codigoDeApresentacao_;
+    Data data_;
+    Horario horario_;
+    Preco preco_;
+    NumeroDeSala numero_;
+    Cidade cidade_;
+    Estado estado_;
+    ClasseDeEvento classe_;
+    FaixaEtaria faixa_;
+    int opt;
+
+    cout << "Deseja retornar?\n\n1-Sim\n2-Nao\n";
+    cout << "Opcao: ";
+    cin >> opt;
+    cout << "\n";
+
+    switch(opt){
+        case 1:
+            break;
+
+        case 2:
+            try{
+                cout << "\nDigite o Codigo do evento (trigger de sucesso = 123,\ntrigger de falha = 321): \n";
+                cin >> codigoDeEvento;
+                codigoDeEvento_ = CodigoDeEvento(codigoDeEvento);
+
+                cout << "\nDigite o Nome do evento (trigger de sucesso = festa,\ntrigger de falha = show): \n";
+                cin >> nome;
+                nome_ = NomeDeEvento(nome);
+
+                cout << "\nDigite o Codigo de Apresentacao do evento (trigger de sucesso = 1234,\ntrigger de falha = 4321): \n";
+                cin >> codigoDeApresentacao;
+                codigoDeApresentacao_ = CodigoDeApresentacao(codigoDeApresentacao);
+
+                cout << "\nDigite a Data do evento (trigger de sucesso = 10/10/20,\ntrigger de falha = 22/09/20): \n";
+                cin >> data;
+                data_ = Data(data);
+
+                cout << "\nDigite o Horario do evento (trigger de sucesso = 18:00,\ntrigger de falha = 10:00): \n";
+                cin >> horario;
+                horario_ = Horario(horario);
+
+                cout << "\nDigite o Preco do evento (trigger de sucesso = 200,\ntrigger de falha = 100): \n";
+                cin >> preco;
+                preco_ = Preco(preco);
+
+                cout << "\nDigite o Numero de Sala do evento (trigger de sucesso = 2,\ntrigger de falha = 1): \n";
+                cin >> numero;
+                numero_ = NumeroDeSala(numero);
+
+                cout << "\nDigite a Cidade do evento (trigger de sucesso = brazlandia,\ntrigger de falha = jacarepagua): \n";
+                cin >> cidade;
+                cidade_ = Cidade(cidade);
+
+                cout << "\nDigite o Estado do evento (trigger de sucesso = DF,\ntrigger de falha = MG): \n";
+                cin >> estado;
+                estado_ = Estado(estado);
+
+                cout << "\nDigite a Classe do evento (trigger de sucesso = 2,\ntrigger de falha = 1): \n";
+                cin >> classe;
+                classe_ = ClasseDeEvento(classe);
+
+                cout << "\nDigite a Faixa Etaria do evento (trigger de sucesso = 16,\ntrigger de falha = 12): \n";
+                cin >> faixa;
+                faixa_ = FaixaEtaria(faixa);
+            }catch(exception &e){
+                cout << "Formato incorreto!\n" << e.what() << "\n";
+            }
+
+            try{
+                verificado = ctrlServicoEvento->CadastrarEvento(codigoDeEvento_, nome_, codigoDeApresentacao_, data_,
+                                                                horario_, preco_, numero_, cidade_, estado_, classe_,
+                                                                faixa_);
+            }catch(exception &e){
+                cout << "\n" << e.what() << "\n";
+            }
+
+            if(verificado.GetResultado() == ResultadoEvento::falha){
+                cout << "\nFalha de cadastramento de evento!\n\n";
             }
 
             resultado.SetResultado(verificado.GetResultado());

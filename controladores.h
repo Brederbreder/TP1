@@ -67,6 +67,7 @@ class CtrlApresentacaoEvento : public InterfaceApresentacaoEvento{
 
     public:
         ResultadoEvento Procurar() override;
+        ResultadoEvento Cadastrar() override;
         inline void SetCtrlServicoEvento(InterfaceServicoEvento *ise) override {
             this->ctrlServicoEvento = ise;
         }
