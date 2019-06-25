@@ -231,3 +231,45 @@ Resultado StubEvento::CadastrarEvento(const CodigoDeEvento &codigoDeEvento, cons
        }
        return resultado;
 }
+
+Resultado StubEvento::DescadastrarEvento(const CodigoDeEvento &codigoDeEvento){
+    Resultado resultado;
+
+    cout << "\nCODIGO DE EVENTO RECEBIDO NA STUB = " << codigoDeEvento.GetCodigoDeEvento() << "\n";
+
+    if(codigoDeEvento.GetCodigoDeEvento() == trigger_codigo_evento_invalido_){
+        resultado.SetResultado(ResultadoEvento::falha);
+    }else if(codigoDeEvento.GetCodigoDeEvento() == trigger_erro_sistema_codigo_){
+        resultado.SetResultado(ResultadoEvento::falha);
+        throw invalid_argument("Erro de Sistema!\n");
+    }else{
+        resultado.SetResultado(ResultadoEvento::sucesso);
+    }
+    return resultado;
+}
+
+Resultado StubEvento::EditarEvento(const CodigoDeEvento &codigoDeEvento, const NomeDeEvento &nome,
+                                   const Cidade &cidade, const Estado &estado, const ClasseDeEvento &classe,
+                                   const FaixaEtaria &faixa){
+    Resultado resultado;
+
+    cout << "\nCODIGO DE EVENTO RECEBIDO NA STUB = " << codigoDeEvento.GetCodigoDeEvento() << "\n";
+    cout << "\nNOME DE EVENTO RECEBIDO NA STUB = " << nome.GetNomeDeEvento() << "\n";
+    cout << "\nCIDADE DO EVENTO RECEBIDO NA STUB = " << cidade.GetCidade() << "\n";
+    cout << "\nESTADO DO EVENTO RECEBIDO NA STUB = " << estado.GetEstado() << "\n";
+    cout << "\nCLASSE DE EVENTO RECEBIDA NA STUB = " << classe.GetClasseDeEvento() << "\n";
+    cout << "\nFAIXA ETARIA RECEBIDA NA STUB = " << codigoDeEvento.GetCodigoDeEvento() << "\n";
+
+    if(codigoDeEvento.GetCodigoDeEvento() == trigger_codigo_evento_invalido_ ||
+       nome.GetNomeDeEvento() == trigger_nome_invalido_ || cidade.GetCidade() == trigger_cidade_invalida_ ||
+       estado.GetEstado() == trigger_estado_invalido_ || classe.GetClasseDeEvento() == trigger_classe_invalida_ ||
+       faixa.GetFaixaEtaria() == trigger_faixa_invalida_){
+            resultado.SetResultado(ResultadoEvento::falha);
+    }else if(codigoDeEvento.GetCodigoDeEvento() == trigger_erro_sistema_codigo_){
+            resultado.SetResultado(ResultadoEvento::falha);
+            throw invalid_argument("Erro de Sistema!\n");
+    }else{
+            resultado.SetResultado(ResultadoEvento::sucesso);
+    }
+    return resultado;
+}

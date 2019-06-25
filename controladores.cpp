@@ -14,6 +14,8 @@ void CtrlApresentacaoControle::Inicializar(){
     ResultadoVenda resultado_ci;
     ResultadoEvento resultado_pe;
     ResultadoEvento resultado_ce;
+    ResultadoEvento resultado_de;
+    ResultadoEvento resultado_ee;
     int opt;
 
     do{
@@ -21,11 +23,12 @@ void CtrlApresentacaoControle::Inicializar(){
         cout << "Escolha uma das opcoes abaixo.\n\n";
         cout << pesquisarEvento << ". Pesquisar evento\n";
         cout << cadastrar << ". Cadastrar\n";
-        cout << descadastrar << ". Descadastrar\n";
         cout << autenticar << ". Autenticar\n";
-        cout << cadastrarEvento << ". Cadastrar Evento\n";
-        cout << descadastrarEvento << ". Descadastrar Evento\n";
         cout << comprar << ". Comprar\n";
+        cout << cadastrarEvento << ". Cadastrar Evento\n";
+        cout << editarEvento << ". Editar Evento\n";
+        cout << descadastrarEvento << ". Descadastrar Evento\n";
+        cout << descadastrar << ". Descadastrar\n";
         cout << sairc << ". Sair\n\topcao: ";
         cin >> opt;
         cout << "\n";
@@ -96,6 +99,30 @@ void CtrlApresentacaoControle::Inicializar(){
                     resultado_ce = ctrl_ae->Cadastrar();
                     if(resultado_ce.GetResultado() == ResultadoUsuario::sucesso){
                         cout << "\nSucesso no cadastramento de evento!\n\n";
+                    }
+                }catch(exception &e){
+                    cout << "\n\t" << e.what() << "\n";
+                    opt = sairc;
+                }
+                break;
+
+            case Controle::descadastrarEvento:
+                try{
+                    resultado_de = ctrl_ae->Descadastrar();
+                    if(resultado_de.GetResultado() == ResultadoUsuario::sucesso){
+                        cout << "\nSucesso no descadastramento de evento!\n\n";
+                    }
+                }catch(exception &e){
+                    cout << "\n\t" << e.what() << "\n";
+                    opt = sairc;
+                }
+                break;
+
+            case Controle::editarEvento:
+                try{
+                    resultado_ee = ctrl_ae->Editar();
+                    if(resultado_ee.GetResultado() == ResultadoUsuario::sucesso){
+                        cout << "\nSucesso na edicao do evento!\n\n";
                     }
                 }catch(exception &e){
                     cout << "\n\t" << e.what() << "\n";
@@ -465,5 +492,112 @@ ResultadoEvento CtrlApresentacaoEvento::Cadastrar(){
         }
 }
 
+ResultadoEvento CtrlApresentacaoEvento::Descadastrar(){
+    ResultadoEvento resultado;
+    Resultado verificado;
+    CodigoDeEvento codigo_;
+    string codigo;
+    int opt;
+
+    cout << "Deseja retornar?\n\n1-Sim\n2-Nao\n";
+    cout << "Opcao: ";
+    cin >> opt;
+    cout << "\n";
+
+    switch(opt){
+        case 1:
+            break;
+
+        case 2:
+            try{
+                cout << "\nDigite o Codigo do evento (trigger de sucesso = 123,\ntrigger de falha = 321): \n";
+                cin >> codigo;
+                codigo_ = CodigoDeEvento(codigo);
+
+            }catch(exception &e){
+                cout << "Formato incorreto!\n" << e.what() << "\n";
+            }
+
+            try{
+                verificado = ctrlServicoEvento->DescadastrarEvento(codigo_);
+            }catch(exception &e){
+                cout << "\n" << e.what() << "\n";
+            }
+
+            if(verificado.GetResultado() == ResultadoEvento::falha){
+                cout << "\nFalha no descadastramento de evento!\n\n";
+            }
+
+            resultado.SetResultado(verificado.GetResultado());
+            return resultado;
+        }
+}
+
+ResultadoEvento CtrlApresentacaoEvento::Editar(){
+    ResultadoEvento resultado;
+    Resultado verificado;
+    CodigoDeEvento codigo_;
+    NomeDeEvento nome_;
+    Cidade cidade_;
+    Estado estado_;
+    ClasseDeEvento classe_;
+    FaixaEtaria faixa_;
+    string codigo, nome, cidade, estado, faixa;
+    int classe;
+    int opt;
+
+    cout << "Deseja retornar?\n\n1-Sim\n2-Nao\n";
+    cout << "Opcao: ";
+    cin >> opt;
+    cout << "\n";
+
+    switch(opt){
+        case 1:
+            break;
+
+        case 2:
+            try{
+                cout << "\nDigite o Codigo do evento (trigger de sucesso = 123,\ntrigger de falha = 321): \n";
+                cin >> codigo;
+                codigo_ = CodigoDeEvento(codigo);
+
+                cout << "\nDigite o novo nome do evento (trigger de sucesso = festa,\ntrigger de falha = show): \n";
+                cin >> nome;
+                nome_ = NomeDeEvento(nome);
+
+                cout << "\nDigite a nova cidade do evento (trigger de sucesso = brazlandia,\ntrigger de falha = jacarepagua): \n";
+                cin >> cidade;
+                cidade_ = Cidade(cidade);
+
+                cout << "\nDigite o novo estado do evento (trigger de sucesso = DF,\ntrigger de falha = MG): \n";
+                cin >> estado;
+                estado_ = Estado(estado);
+
+                cout << "\nDigite a nova classe do evento (trigger de sucesso = 2,\ntrigger de falha = 1): \n";
+                cin >> classe;
+                classe_ = ClasseDeEvento(classe);
+
+                cout << "\nDigite a nova faixa etaria do evento (trigger de sucesso = 16,\ntrigger de falha = 12): \n";
+                cin >> faixa;
+                faixa_ = FaixaEtaria(faixa);
+
+            }catch(exception &e){
+                cout << "Formato incorreto!\n" << e.what() << "\n";
+            }
+
+            try{
+                verificado = ctrlServicoEvento->EditarEvento(codigo_, nome_, cidade_, estado_, classe_, faixa_);
+            }catch(exception &e){
+                cout << "\n" << e.what() << "\n";
+            }
+
+            if(verificado.GetResultado() == ResultadoEvento::falha){
+                cout << "\nFalha ao editar o evento!\n\n";
+            }
+
+            resultado.SetResultado(verificado.GetResultado());
+            return resultado;
+        }
+}
 
 

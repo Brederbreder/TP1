@@ -66,6 +66,10 @@ class InterfaceServicoEvento{
                                           const Horario &horario, const Preco &preco, const NumeroDeSala &numero,
                                           const Cidade &cidade, const Estado &estado, const ClasseDeEvento &classe,
                                           const FaixaEtaria &faixa) = 0;
+        virtual Resultado DescadastrarEvento(const CodigoDeEvento &codigoDeEvento) = 0;
+        virtual Resultado EditarEvento(const CodigoDeEvento &codigoDeEvento, const NomeDeEvento &nome,
+                                       const Cidade &cidade, const Estado &estado, const ClasseDeEvento &classe,
+                                       const FaixaEtaria &faixa) = 0;
         virtual Resultado ProcurarEvento(const Data &data, const Horario &horario, const Cidade &cidade, const Estado &estado) = 0;
         virtual ~InterfaceServicoEvento() = default;
 };
@@ -74,6 +78,8 @@ class InterfaceApresentacaoEvento{
     public:
         virtual ResultadoEvento Cadastrar() = 0;
         virtual ResultadoEvento Procurar() = 0;
+        virtual ResultadoEvento Descadastrar() = 0;
+        virtual ResultadoEvento Editar() = 0;
         virtual void SetCtrlServicoEvento(InterfaceServicoEvento *) = 0;
         virtual ~InterfaceApresentacaoEvento() = default;
 };

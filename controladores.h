@@ -14,11 +14,12 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle{
             nullc,
             pesquisarEvento,
             cadastrar,
-            descadastrar,
             autenticar,
-            cadastrarEvento,
-            descadastrarEvento,
             comprar,
+            cadastrarEvento,
+            editarEvento,
+            descadastrarEvento,
+            descadastrar,
             sairc
         };
 
@@ -68,6 +69,8 @@ class CtrlApresentacaoEvento : public InterfaceApresentacaoEvento{
     public:
         ResultadoEvento Procurar() override;
         ResultadoEvento Cadastrar() override;
+        ResultadoEvento Descadastrar() override;
+        ResultadoEvento Editar() override;
         inline void SetCtrlServicoEvento(InterfaceServicoEvento *ise) override {
             this->ctrlServicoEvento = ise;
         }

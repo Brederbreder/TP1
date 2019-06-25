@@ -73,6 +73,10 @@ class StubEvento : public InterfaceServicoEvento{
                                   const Horario &horario, const Preco &preco, const NumeroDeSala &numero,
                                   const Cidade &cidade, const Estado &estado, const ClasseDeEvento &classe,
                                   const FaixaEtaria &faixa);
+        Resultado EditarEvento(const CodigoDeEvento &codigoDeEvento, const NomeDeEvento &nome,
+                               const Cidade &cidade, const Estado &estado, const ClasseDeEvento &classe,
+                               const FaixaEtaria &faixa);
+        Resultado DescadastrarEvento(const CodigoDeEvento &codigoDeEvento);
 };
 
 class StubVenda : public InterfaceServicoVenda{
