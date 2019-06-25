@@ -14,7 +14,11 @@ class CtrlApresentacaoControle : public InterfaceApresentacaoControle{
             nullc,
             pesquisarEvento,
             cadastrar,
+            descadastrar,
             autenticar,
+            cadastrarEvento,
+            descadastrarEvento,
+            comprar,
             sairc
         };
 
@@ -49,15 +53,9 @@ class CtrlApresentacaoUsuario : public InterfaceApresentacaoUsuario{
     private:
         InterfaceServicoUsuario *ctrlServicoUsuario;
 
-        enum{
-            null,
-            cadastrarUsuario,
-            descadastrarUsuario,
-            voltar
-        };
-
     public:
-        void Cadastrar() override;
+        ResultadoUsuario Cadastrar() override;
+        ResultadoUsuario Descadastrar() override;
         inline void SetCtrlServicoUsuario(InterfaceServicoUsuario *isu) override {
             this->ctrlServicoUsuario = isu;
         }
@@ -67,14 +65,8 @@ class CtrlApresentacaoEvento : public InterfaceApresentacaoEvento{
     private:
         InterfaceServicoEvento *ctrlServicoEvento;
 
-        enum{
-            null,
-            cadastrarEvento,
-            descadastrarEvento,
-            voltar
-        };
-
     public:
+        ResultadoEvento Procurar() override;
         inline void SetCtrlServicoEvento(InterfaceServicoEvento *ise) override {
             this->ctrlServicoEvento = ise;
         }
@@ -84,13 +76,8 @@ class CtrlApresentacaoVenda : public InterfaceApresentacaoVenda{
     private:
         InterfaceServicoVenda *ctrlServicoVenda;
 
-        enum{
-            null,
-            comprar,
-            voltar
-        };
-
     public:
+        ResultadoVenda ComprarIngresso() override;
         inline void SetCtrlServicoVenda(InterfaceServicoVenda *isv) override {
             this->ctrlServicoVenda = isv;
         }

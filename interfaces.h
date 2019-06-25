@@ -45,36 +45,42 @@ class InterfaceApresentacaoAutenticacao{
 
 class InterfaceServicoUsuario{
     public:
-        virtual Resultado CadastrarUsuario(Usuario usuario, const Cpf &, const Senha &, const NumeroCartaoDeCredito &,
+        virtual Resultado CadastrarUsuario(Usuario &usuario, const Cpf &, const Senha &, const NumeroCartaoDeCredito &,
                                            const CodigoDeSeguranca &, const DataDeValidade &) = 0;
+        virtual Resultado DescadastrarUsuario(Usuario &usuario, const Cpf &, const Senha &) = 0;
         virtual ~InterfaceServicoUsuario() = default;
 };
 
 class InterfaceApresentacaoUsuario{
     public:
-        virtual void Cadastrar() = 0;
+        virtual ResultadoUsuario Cadastrar() = 0;
+        virtual ResultadoUsuario Descadastrar() = 0;
         virtual void SetCtrlServicoUsuario(InterfaceServicoUsuario *) = 0;
         virtual ~InterfaceApresentacaoUsuario() = default;
 };
 
 class InterfaceServicoEvento{
     public:
+        virtual Resultado ProcurarEvento(const Data &data, const Horario &horario, const Cidade &cidade, const Estado &estado) = 0;
         virtual ~InterfaceServicoEvento() = default;
 };
 
 class InterfaceApresentacaoEvento{
     public:
+        virtual ResultadoEvento Procurar() = 0;
         virtual void SetCtrlServicoEvento(InterfaceServicoEvento *) = 0;
         virtual ~InterfaceApresentacaoEvento() = default;
 };
 
 class InterfaceServicoVenda{
     public:
+        virtual Resultado Comprar(const CodigoDeApresentacao &codigo, const int quantidade) = 0;
         virtual ~InterfaceServicoVenda() = default;
 };
 
 class InterfaceApresentacaoVenda{
     public:
+        virtual ResultadoVenda ComprarIngresso() = 0;
         virtual void SetCtrlServicoVenda(InterfaceServicoVenda *) = 0;
         virtual ~InterfaceApresentacaoVenda() = default;
 };

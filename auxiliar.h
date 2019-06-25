@@ -56,4 +56,30 @@ class ResultadoUsuario : public Resultado{
         Usuario usuario_;
 };
 
+class ResultadoVenda : public Resultado{
+    public:
+        inline void SetResultado(int valor){
+            this->valor_ = valor;
+        }
+        inline int GetResultado() const{
+            return valor_;
+        }
+
+    private:
+        int valor_;
+};
+
+class ResultadoEvento : public Resultado{
+    public:
+        inline void SetResultado(int valor){
+            this->valor_ = valor;
+        }
+        inline int GetResultado() const{
+            return valor_;
+        }
+
+    private:
+        int valor_;
+};
+
 #endif

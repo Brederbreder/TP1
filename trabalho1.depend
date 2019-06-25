@@ -148,7 +148,7 @@
 	"entidades.h"
 	"controladores.h"
 
-1560426337 source:/home/matheus/Documentos/UnB/201901/TP1/controladores.cpp
+1561424949 source:/home/matheus/Documentos/UnB/201901/TP1/controladores.cpp
 	"controladores.h"
 	"dominios.h"
 	"entidades.h"
@@ -157,10 +157,10 @@
 	"auxiliar.h"
 	<iostream>
 
-1560424363 /home/matheus/Documentos/UnB/201901/TP1/controladores.h
+1561423284 /home/matheus/Documentos/UnB/201901/TP1/controladores.h
 	"interfaces.h"
 
-1560426743 /home/matheus/Documentos/UnB/201901/TP1/interfaces.h
+1561424691 /home/matheus/Documentos/UnB/201901/TP1/interfaces.h
 	"auxiliar.h"
 
 1560177470 /home/matheus/Documentos/UnB/201901/TP1/dominios.h
@@ -211,7 +211,7 @@
 	"testes-dominios.h"
 	"testes-entidades.h"
 
-1560251571 source:/home/matheus/Documentos/UnB/201901/TP1/servicos.cpp
+1561371564 source:/home/matheus/Documentos/UnB/201901/TP1/servicos.cpp
 	"interfaces.h"
 	"dominios.h"
 	"entidades.h"
@@ -231,17 +231,17 @@
 	"dominios.h"
 	"entidades.h"
 
-1560426711 /home/matheus/Documentos/UnB/201901/TP1/auxiliar.h
+1561424399 /home/matheus/Documentos/UnB/201901/TP1/auxiliar.h
 	"dominios.h"
 	"entidades.h"
 
-1560426771 /home/matheus/Documentos/UnB/201901/TP1/stubs.h
+1561424921 /home/matheus/Documentos/UnB/201901/TP1/stubs.h
 	"interfaces.h"
 	"dominios.h"
 	"entidades.h"
 	"auxiliar.h"
 
-1560423071 source:/home/matheus/Documentos/UnB/201901/TP1/stubs.cpp
+1561425171 source:/home/matheus/Documentos/UnB/201901/TP1/stubs.cpp
 	"stubs.h"
 	"auxiliar.h"
 	"dominios.h"
